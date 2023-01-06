@@ -8,8 +8,9 @@ import cors from 'cors';
 const app = express()
 app.disable('x-powered-by');
 
+
 // Pour recréer DB, à commenter sinon
-// initDb()
+initDb()
 
 //
 
