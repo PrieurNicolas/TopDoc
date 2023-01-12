@@ -1,6 +1,6 @@
 import 'dotenv/config'
 import { Response, Request, NextFunction } from 'express';
-import { apiController } from './controllers/apiController';
+import { apiController } from './controllers/apicontroller';
 import { initDb } from './database/connect';
 const express = require("express")
 import cors from 'cors';

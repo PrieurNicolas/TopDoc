@@ -1,9 +1,12 @@
 export interface userTypes {
-  email: string;
-  phone: number;
-  isActif: boolean;
+  mail: string;
+  phone_number: string;
   password: string;
-  LocalisationId: number;
+  loc_id: number;
+  firstname: string;
+  lastname: string;
+  genre: string;
+  birthdate: Date;
 }
 
 
@@ -11,20 +14,4 @@ export interface userId extends userTypes {
 
   id: number;
 
-}
-
-// A VIRER
-export interface User {
-  username: string;
-  password: string;
-}
-
-declare global {
-  namespace Express {
-    interface Request {
-      headers?: Headers;
-      body?: Body;
-      user?: User;
-    }
-  }
 }

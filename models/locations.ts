@@ -6,7 +6,7 @@ export class Location extends Model {
     loc_id!: number
     address!: string
     zipCode!: number
-    city!: number
+    city!: string
 
 }
 

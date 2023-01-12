@@ -3,12 +3,12 @@ import { sequelize } from "../database/connect";
 import { concatErrorMessage } from "../database/method"
 
 export class User extends Model {
-    User_id!: number
+    user_id!: number
     lastname!: string
     firstname!: string
     mail!: string
     password!: string
-    birthdate!: string
+    birthdate!: Date
     phone_number!: string
     genre!:string
 }

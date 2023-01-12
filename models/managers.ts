@@ -4,14 +4,14 @@ import { concatErrorMessage } from "../database/method"
 
 export class Manager extends Model {
     manager_id!: number
+    activity_id!: number
     function!: string
     practitioner!: boolean
 }
 
 Manager.init({
-    manager_Id: {
+    manager_id: {
         type: DataTypes.INTEGER,
-        autoIncrement: true,
         primaryKey: true,
     },
     function: {

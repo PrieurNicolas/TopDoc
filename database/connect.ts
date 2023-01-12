@@ -115,12 +115,26 @@ export const initDb = () => {
             })
         })
 
+
+        activitys.map(activitys => {
+            Activity.create({
+                designation: activitys.designation,
+                type: activitys.type,
+                valid: activitys.valid,
+                active: activitys.active
+            }).then((response: { toJSON: () => string }) => {
+                console.log('Activity', response.toJSON())
+            })
+        })
+
         managers.map(managers => {
             Manager.create({
+                manager_id: managers.manager_id,
+                activity_id: managers.activity_id,
                 function: managers.function,
                 practitioner: managers.practitioner,
             }).then((response: { toJSON: () => string }) => {
-                console.log('Manger', response.toJSON())
+                console.log('Manager', response.toJSON())
             })
         })
 
@@ -133,16 +147,6 @@ export const initDb = () => {
             })
         })
 
-        activitys.map(activitys => {
-            Activity.create({
-                designation: activitys.designation,
-                type: activitys.type,
-                valid: activitys.valid,
-                active: activitys.active
-            }).then((response: { toJSON: () => string }) => {
-                console.log('Activity', response.toJSON())
-            })
-        })
 
         appointments.map(appointments => {
             Appointment.create({
@@ -173,8 +177,6 @@ export const initDb = () => {
             })
         })
 
-
-
         // receives.map(receives=>{
         //     Receive.create({
         //         user_id: receives.user_id,
@@ -184,6 +186,5 @@ export const initDb = () => {
         //     })
         // })
 
-        console.log('Database created')
     })
 }

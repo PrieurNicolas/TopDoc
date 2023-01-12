@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { usersController } from "./userController"
+import { usersController } from "./usercontroller";
 
 const swaggerJsDoc = require('swagger-jsdoc')
 const swaggerUi = require('swagger-ui-express')
