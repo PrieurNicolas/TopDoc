@@ -40,7 +40,7 @@ export class UserHandler {
         req.body.password = await bcrypt.hash(req.body.password, 10)
         try {
             const result = await this.userService.create(req.body);
-            res.status(200).json(result)
+            res.status(200).json(result ? "Ajouté" : "fail")
         } catch (err) {
             res.status(500).json(err)
         }
@@ -50,7 +50,7 @@ export class UserHandler {
         const id = parseInt(req.params.id);
         try {
             const result = await this.userService.delete(id);
-            res.status(200).json(result ? "supprimé" : "fail")
+            res.status(200).json(result ? "Supprimé" : "fail")
         } catch (err) {
             res.status(500).json(err)
         }
@@ -60,7 +60,7 @@ export class UserHandler {
         const id = parseInt(req.params.id);
         try {
             const result = await this.userService.update(req.body, id);
-            res.status(200).json(result ? "mis a jour" : "fail");
+            res.status(200).json(result ? "Mis a jour" : "fail");
         } catch (err) {
             res.status(500).json(err)
         }
