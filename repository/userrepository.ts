@@ -11,7 +11,7 @@ export class UserRepository implements IRepository<userDTO> {
     async findAll(): Promise<userDTO[]> {
        return User.findAll().then((users: User[]) => users.map((user) => UserMapper.mapToDto(user)))
     }
-    async create(t: Omit<User, 'user_id'>): Promise<userDTO | null> {
+    async create(t: Omit<User, 'id'>): Promise<userDTO | null> {
         try {
             return User.create(t).then((user: User) => UserMapper.mapToDto(user))
         } catch (error) {
@@ -20,10 +20,10 @@ export class UserRepository implements IRepository<userDTO> {
         }
     }
     async delete(id: number): Promise<number |boolean> {
-        return User.destroy({where: {user_id: id}}).then((good: number |boolean ) => good)
+        return User.destroy({where: {id: id}}).then((good: number |boolean ) => good)
     }
     async update(t: User, id: number): Promise<number |boolean> {
-        return User.update(t, {where: {user_id: id}}).then(((good: (number |boolean)[]) => good[0]))
+        return User.update(t, {where: {id: id}}).then(((good: (number |boolean)[]) => good[0]))
     }
 
 }

@@ -3,7 +3,7 @@ import { sequelize } from "../database/connect";
 import { concatErrorMessage } from "../database/method"
 
 export class User extends Model {
-    user_id!: number
+    id!: number
     lastname!: string
     firstname!: string
     mail!: string
@@ -14,7 +14,7 @@ export class User extends Model {
 }
 
 User.init({
-    user_id: {
+    id: {
         type: DataTypes.INTEGER,
         autoIncrement: true,
         primaryKey: true,

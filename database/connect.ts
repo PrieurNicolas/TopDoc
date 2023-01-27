@@ -1,4 +1,3 @@
-
 import { DataTypes, Sequelize } from "sequelize"
 
 export const sequelize = new Sequelize(
@@ -18,8 +17,10 @@ export const sequelize = new Sequelize(
 import { users } from "./mock/usermock"
 import { User } from "../models/users"
 
-import { locations } from "./mock/localisationmock"
-import { Location } from "../models/locations"
+import { locations } from "./mock/locationmock"
+const Location = require("../models/locations")
+import { locationTypes } from "../types/location"
+export const Locations = Location(sequelize, DataTypes)
 
 import { tokens } from "./mock/tokenmock"
 import { Token } from "../models/tokens"
@@ -50,7 +51,7 @@ import { Time_slot } from "../models/time_slot"
 
 import { relations } from "../models/relations"
 
-
+export default User
 
 sequelize.authenticate()
     .then(() => {
@@ -79,15 +80,15 @@ export const initDb = () => {
             })
         })
 
-        locations.map(locations => {
-            Location.create({
-                address: locations.address,
-                zipCode: locations.zipCode,
-                city: locations.city,
-            }).then((response: { toJSON: () => string }) => {
-                console.log('Location', response.toJSON())
-            })
-        })
+        // locations.map(locations => {
+        //     Location.create({
+        //         address: locations.address,
+        //         zip_code: locations.zip_code,
+        //         city: locations.city,
+        //     }).then((response: { toJSON: () => string }) => {
+        //         console.log('Location', response.toJSON())
+        //     })
+        // })
 
         tokens.map(tokens => {
             Token.create({
@@ -179,7 +180,7 @@ export const initDb = () => {
 
         // receives.map(receives=>{
         //     Receive.create({
-        //         user_id: receives.user_id,
+        //         id: receives.id,
         //         role_id: receives.role_id,
         //     }).then((response: {toJSON: () => string}) => {
         //         console.log('Receive', response.toJSON())

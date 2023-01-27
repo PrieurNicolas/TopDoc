@@ -1,4 +1,5 @@
 import { Router } from "express";
+import { locationController } from "./locationscontroller";
 import { usersController } from "./usercontroller";
 
 const swaggerJsDoc = require('swagger-jsdoc')
@@ -26,5 +27,6 @@ const swaggerDocs = swaggerJsDoc(swaggerOptions)
 
 apiController.use('/docs', swaggerUi.serve, swaggerUi.setup(swaggerDocs))
 apiController.use('/users', usersController)
+apiController.use('/locations', locationController)
 
 export { apiController }

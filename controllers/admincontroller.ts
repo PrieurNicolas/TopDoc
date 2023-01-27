@@ -23,7 +23,7 @@ const adminController = Router();
 //   *         in: body
 //   *         required: true
 //   *         type: object
-//   *         default: { "password":"string","email": "email@email.com", "phone": 1111111, "isActif": true}
+//   *         default: { "password":"admin","email": "admin@email.com", "phone": 0632659841, "isActif": true}
 //   *      responses:
 //   *        200:
 //   *          description: Create a new user with role.

@@ -2,16 +2,16 @@ import { DataTypes, Model } from "sequelize";
 import { sequelize } from "../database/connect";
 
 export class Receive extends Model {
-    user_id!: number
+    id!: number
     role_id!: number
 }
 
 Receive.init({
-    user_id: {
+    id: {
         type: DataTypes.INTEGER,
         references: {
             model: 'user',
-            key:'user_id',
+            key:'id',
         }
     },
 

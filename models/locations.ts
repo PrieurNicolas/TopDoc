@@ -1,43 +1,33 @@
-import { DataTypes, Model } from "sequelize";
-import { sequelize } from "../database/connect";
-import { concatErrorMessage } from "../database/method"
+import { DataTypes, Sequelize } from "sequelize";
 
-export class Location extends Model {
-    loc_id!: number
-    address!: string
-    zipCode!: number
-    city!: string
+module.exports = (sequelize: Sequelize, dataTypes: typeof DataTypes) => {
+    const concatRequiredMessage = (data: string) => {
+        return `${data} is required`
+    }
 
-}
+    return sequelize.define('location', {
 
-Location.init({
-    loc_id: {
-        type: DataTypes.INTEGER,
-        autoIncrement: true,
-        primaryKey: true,
-    },
-    address: {
-        type: DataTypes.STRING,
-        allowNull: false,
-        validate: {
-            notNull: { msg: concatErrorMessage('Address') },
-            notEmpty: { msg: concatErrorMessage('Address') }
+        id: {
+            type: DataTypes.INTEGER,
+            autoIncrement: true,
+            primaryKey: true,
+        },
+        address: {
+            type: DataTypes.STRING,
+            allowNull: false,
+            validate: {
+                notNull: { msg: concatRequiredMessage('Address') },
+                notEmpty: { msg: concatRequiredMessage('Address') }
+            }
+        },
+        zip_code: {
+            type: DataTypes.INTEGER,
+            allowNull: false
+        },
+        city: {
+            type: DataTypes.STRING,
+            allowNull: false
         }
-    },
-    zipCode: {
-        type: DataTypes.INTEGER,
-        allowNull: false
-    },
-    city: {
-        type: DataTypes.STRING,
-        allowNull: false
-    }
-    
-},
-    {
-        sequelize: sequelize,
-        freezeTableName: true,
-        tableName: "location",
-        underscored: true
-    }
-);
+
+    })
+}

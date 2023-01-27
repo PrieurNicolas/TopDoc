@@ -21,7 +21,7 @@ export interface IRepositoryAuth<T, D> {
 
 export interface IRepositoryPlanning<T> {
     findById(id: number): Promise<T | null>;
-    create(t: Omit<T, 'user_id'>): Promise<T | null>;
+    create(t: Omit<T, 'id'>): Promise<T | null>;
     update(t: Partial<T>, id: number): Promise<number |boolean>;
     delete(id: number): Promise<number |boolean>;
 }

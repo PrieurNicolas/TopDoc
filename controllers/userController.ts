@@ -22,7 +22,23 @@ const usersController = Router();
  */
 usersController.get("/", userHandler.getUsers)
 
-
+/**
+ * @openapi
+ * /api/users/{id}:
+ *  get:
+ *      tags: [Users]
+ *      description: Get User by ID
+ *      parameters:
+ *       - name: id
+ *         in: path
+ *         required: true
+ *         type: integer
+ *         default: 1
+ *      responses:
+ *        200:
+ *          description: Get the user of given id.
+ */
+usersController.get('/:id', userHandler.getUserId)
 
 /**
   * @openapi
@@ -44,41 +60,6 @@ usersController.get("/", userHandler.getUsers)
   * 
   */
 usersController.post("/", userHandler.postUser)
-
-/**
-  * @openapi
-  * /api/users/{id}:
-  *  delete:
-  *      tags: [Users]
-  *      description: Delete Users
-  *      parameters:
-  *       - name: id
-  *         in: path
-  *         required: true
-  *         type: integer
-  *      responses:
-  *        200:
-  *          description: Delete an user. 
-  */
-usersController.delete("/:id", userHandler.deleteUser)
-
-/**
- * @openapi
- * /api/users/{id}:
- *  get:
- *      tags: [Users]
- *      description: Get User by ID
- *      parameters:
- *       - name: id
- *         in: path
- *         required: true
- *         type: integer
- *         default: 1
- *      responses:
- *        200:
- *          description: Get the user of given id.
- */
-usersController.get('/:id', userHandler.getUserId)
 
 /**
  * @openapi
@@ -104,6 +85,25 @@ usersController.get('/:id', userHandler.getUserId)
  *          description: Update the user of given id.
  */
 usersController.put('/:id', userHandler.updateUser)
+
+/**
+  * @openapi
+  * /api/users/{id}:
+  *  delete:
+  *      tags: [Users]
+  *      description: Delete Users
+  *      parameters:
+  *       - name: id
+  *         in: path
+  *         required: true
+  *         type: integer
+  *      responses:
+  *        200:
+  *          description: Delete an user. 
+  */
+usersController.delete("/:id", userHandler.deleteUser)
+
+
 
 // usersController.use("/admin", adminController)
 

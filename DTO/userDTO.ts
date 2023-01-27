@@ -8,7 +8,7 @@ export interface userDTO {
 }
 
 export interface userLoginDTO {
-    user_id: number,
+    id: number,
     mail: string,
     password: string;
 }

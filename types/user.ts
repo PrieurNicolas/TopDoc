@@ -2,7 +2,7 @@ export interface userTypes {
   mail: string;
   phone_number: string;
   password: string;
-  loc_id: number;
+  id: number;
   firstname: string;
   lastname: string;
   genre: string;
