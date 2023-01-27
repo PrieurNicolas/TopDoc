@@ -26,7 +26,9 @@ import { tokens } from "./mock/tokenmock"
 import { Token } from "../models/tokens"
 
 import { banneds } from "./mock/bannedmock"
-import { Ban } from "../models/banneds"
+const Ban = require("../models/banneds")
+import { bannedTypes } from "../types/banned"
+export const Banneds = Ban(sequelize, DataTypes)
 
 import { roles } from "./mock/rolemock"
 import { Role } from "../models/roles"
@@ -99,14 +101,14 @@ export const initDb = () => {
             })
         })
 
-        banneds.map(banneds => {
-            Ban.create({
-                banMail: banneds.banMail,
-                reason: banneds.reason,
-            }).then((response: { toJSON: () => string }) => {
-                console.log('Banned', response.toJSON())
-            })
-        })
+        // banneds.map(banneds => {
+        //     Ban.create({
+        //         banMail: banneds.banMail,
+        //         reason: banneds.reason,
+        //     }).then((response: { toJSON: () => string }) => {
+        //         console.log('Banned', response.toJSON())
+        //     })
+        // })
 
         roles.map(roles => {
             Role.create({

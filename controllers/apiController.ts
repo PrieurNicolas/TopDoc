@@ -1,4 +1,5 @@
 import { Router } from "express";
+import { bannedController } from "./bannedcontroller";
 import { locationController } from "./locationscontroller";
 import { usersController } from "./usercontroller";
 
@@ -28,5 +29,6 @@ const swaggerDocs = swaggerJsDoc(swaggerOptions)
 apiController.use('/docs', swaggerUi.serve, swaggerUi.setup(swaggerDocs))
 apiController.use('/users', usersController)
 apiController.use('/locations', locationController)
+apiController.use('/banneds', bannedController)
 
 export { apiController }

@@ -3,11 +3,11 @@ import { Activity } from "./activitys"
 import { Appointment } from "./appointment"
 import { Role } from "./roles"
 import { Token } from "./tokens"
-// import { Location } from "./locations"
+const Location = require("../models/locations")
 import { Holiday } from "./holidays"
 import { Time_table } from "./time_table"
 import { Time_slot } from "./time_slot"
-import { Ban } from "./banneds"
+const Ban = require("../models/banneds")
 import { Manager } from "./managers"
 
 export const relations = () => {
@@ -27,11 +27,11 @@ export const relations = () => {
     User.hasMany(Token, {foreignKey: 'user_id'})
     Token.belongsTo(User, {foreignKey: "user_id"})
 
-    // User.belongsTo(Location, {foreignKey:'location_id'})
-    // Location.hasMany(User, {foreignKey:'location_id'})
+    User.belongsTo(Location, {foreignKey:'location_id'})
+    Location.hasMany(User, {foreignKey:'location_id'})
 
-    // Activity.belongsTo(Location, {foreignKey:'location_id'})
-    // Location.hasMany(Activity, {foreignKey:'location_id'})
+    Activity.belongsTo(Location, {foreignKey:'location_id'})
+    Location.hasMany(Activity, {foreignKey:'location_id'})
 
     Activity.hasMany(Holiday,{foreignKey:'activity_id'})
     Holiday.belongsTo(Activity,{foreignKey:'activity_id'})

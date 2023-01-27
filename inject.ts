@@ -1,6 +1,6 @@
 // import { ActiviteHandler } from "./handler/activite.handler";
 // import { AuthHandler } from "./handler/auth.handler";
-// import { BannisHandler } from "./handler/bannis.handler";
+import { BannedHandler } from "./handler/bannedhandler";
 // import { CongeHandler } from "./handler/conge.handler";
 // import { JourHandler } from "./handler/jour.handler";
 import { LocationHandler } from "./handler/locationshandler";
@@ -11,7 +11,7 @@ import { LocationHandler } from "./handler/locationshandler";
 import { UserHandler } from "./handler/userhandler";
 // import { ActiviteRepository } from "./repository/activite.repository";
 // import { AuthRepository } from "./repository/auth.repository";
-// import { BannisRepository } from "./repository/bannis.repository";
+import { BannedRepository } from "./repository/bannedrepository";
 // import { CongeRepository } from "./repository/conge.repository";
 // import { JourRepository } from "./repository/jour.repository";
 import { LocationRepository } from "./repository/locationsrepository";
@@ -22,7 +22,7 @@ import { LocationRepository } from "./repository/locationsrepository";
 import { UserRepository } from "./repository/userrepository";
 // import { ActiviteService } from "./services/Activite.service";
 // import { AuthService } from "./services/Auth.service";
-// import { BannisService } from "./services/bannis.service";
+import { BannedService } from "./services/bannedservice";
 // import { CongeService } from "./services/conge.service";
 // import { JourService } from "./services/jour.service";
 import { LocationService } from "./services/locationsservice";
@@ -33,7 +33,7 @@ import { LocationService } from "./services/locationsservice";
 import { UserService } from "./services/userservices";
 
 // export const activiteHandler = new ActiviteHandler(new ActiviteService(new ActiviteRepository()))
-// export const bannisHandler = new BannisHandler(new BannisService(new BannisRepository()))
+export const bannedHandler = new BannedHandler(new BannedService(new BannedRepository()))
 // export const congeHandler = new CongeHandler(new CongeService(new CongeRepository()))
 // export const jourHandler = new JourHandler(new JourService(new JourRepository()))
 export const locationHandler = new LocationHandler(new LocationService(new LocationRepository()))
